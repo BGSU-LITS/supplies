@@ -1,0 +1,2817 @@
+{% set title = 'Supply Request Form' %}
+{% extends [settings.template.page, 'page.html.twig'] %}
+
+{% block content %}
+{{ parent() }}
+    <form method="post">
+        <fieldset class="form-horizontal">
+            <legend>Information</legend>
+            <div class="form-group">
+                <label for="department" class="col-sm-2 control-label">Department</label>
+                <div class="col-sm-6">
+                    {{
+                        helper.input({
+                            type: 'text',
+                            name: 'department',
+                            value: department,
+                            attribs: {
+                                class: 'form-control',
+                                id: 'department'
+                            }
+                        })
+                        |raw
+                    }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="name" class="col-sm-2 control-label">Name</label>
+                <div class="col-sm-6">
+                    {{
+                        helper.input({
+                            type: 'text',
+                            name: 'name',
+                            value: name,
+                            attribs: {
+                                class: 'form-control',
+                                id: 'name'
+                            }
+                        })
+                        |raw
+                    }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-6">
+                    {{
+                        helper.input({
+                            type: 'email',
+                            name: 'email',
+                            value: email,
+                            attribs: {
+                                class: 'form-control',
+                                id: 'email',
+                                required: true
+                            }
+                        })
+                        |raw
+                    }}
+                </div>
+                <div class="col-sm-4 help-block">
+                    <strong class="text-danger">* Required</strong>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-6">
+                    {{
+                        helper.input({
+                            type: 'tel',
+                            name: 'phone',
+                            value: phone,
+                            attribs: {
+                                class: 'form-control',
+                                id: 'phone'
+                            }
+                        })
+                        |raw
+                    }}
+                </div>
+            </div>
+        </fieldset>
+        <table class="table table-bordered form-inline">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th colspan="2">Adding Machines:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_adding_machine_tape_2-1/4_inch">
+                            Tape, 2&frac14;&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Adding Machines - Tape, 2-1/4 inch][Quantity]',
+                                value: items['Adding Machines - Tape, 2-1/4 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_adding_machine_tape_2-1/4_inch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_adding_machine_ribbon">
+                            Ribbon
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Adding Machines - Ribbon][Quantity]',
+                                value: items['Adding Machines - Ribbon']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_adding_machine_ribbon'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_adding_machine_make">
+                            Make
+                        </label>
+                        /
+                        <label for="items_adding_machine_model">
+                            Model
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Adding Machines - Make][Quantity]',
+                                value: items['Adding Machines - Make']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_adding_machine_make'
+                                }
+                            })
+                            |raw
+                        }}
+                        /
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Adding Machines - Model][Quantity]',
+                                value: items['Adding Machines - Model']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_adding_machine_model'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Batteries: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_batteries_aaa">
+                            AAA
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Batteries - AAA][Quantity]',
+                                value: items['Batteries - AAA']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_batteries_aaa'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_batteries_aa">
+                            AA
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Batteries - AA][Quantity]',
+                                value: items['Batteries - AA']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_batteries_aa'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_batteries_c">
+                            C
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Batteries - C][Quantity]',
+                                value: items['Batteries - C']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_batteries_c'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_batteries_D">
+                            D
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Batteries - D][Quantity]',
+                                value: items['Batteries - D']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_batteries_D'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_batteries_9_volt">
+                            9 Volt
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Batteries - 9 Volt][Quantity]',
+                                value: items['Batteries - 9 Volt']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_batteries_9_volt'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Binders: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_binders_1_inch">
+                            1&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Binders - 1 inch][Quantity]',
+                                value: items['Binders - 1 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_binders_1_inch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_binders_2_inch">
+                            2&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Binders - 2 inch][Quantity]',
+                                value: items['Binders - 2 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_binders_2_inch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_binders_3_inch">
+                            3&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Binders - 3 inch][Quantity]',
+                                value: items['Binders - 3 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_binders_3_inch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_binders_other">
+                            Other
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_binders_other_size">
+                                Size:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Binders - Other][Size]',
+                                    value: items['Binders - Other']['Size'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_binders_other_size'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Binders - Other][Quantity]',
+                                value: items['Binders - Other']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_binders_other'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Binder Clips, Black: (Box of 12)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_binder_clips_small">
+                            Small
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Binder Clips, Black - Small][Quantity]',
+                                value: items['Binder Clips, Black - Small']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_binder_clips_small'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_binder_clips_medium">
+                            Medium
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Binder Clips, Black - Medium][Quantity]',
+                                value: items['Binder Clips, Black - Medium']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_binder_clips_medium'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_binder_clips_large">
+                            Large
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Binder Clips, Black - Large][Quantity]',
+                                value: items['Binder Clips, Black - Large']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_binder_clips_large'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Envelopes: (Box)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_envelopes_campus_mail">
+                            Campus Mail
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Envelopes - Campus Mail][Quantity]',
+                                value: items['Envelopes - Campus Mail']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_envelopes_campus_mail'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_envelopes_padded_mailing">
+                            Padded Mailing (Case)
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_envelopes_padded_mailing_size">
+                                Size:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Envelopes - Padded Mailing][Size]',
+                                    value: items['Envelopes - Padded Mailing']['Size'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_envelopes_padded_mailing_size'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Envelopes - Padded Mailing][Quantity]',
+                                value: items['Envelopes - Padded Mailing']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_envelopes_padded_mailing'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_envelopes_wt_jerome">
+                            WT Jerome
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Envelopes - WT Jerome][Quantity]',
+                                value: items['Envelopes - WT Jerome']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_envelopes_wt_jerome'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_envelopes_wt_jerome_window">
+                            WT Jerome Window
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Envelopes - WT Jerome Window][Quantity]',
+                                value: items['Envelopes - WT Jerome Window']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_envelopes_wt_jerome_window'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_envelopes_manilla">
+                            Manilla
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Envelopes - Manilla][Quantity]',
+                                value: items['Envelopes - Manilla']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_envelopes_manilla'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Other Envelopes: Forward a sample to Budget Office w/ quantity.
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">File Folders, Manilla: (Box of 100)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_manilla_file_folders_letter_size">
+                            Letter Size
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Manilla File Folders - Letter][Size]',
+                                value: items['Manilla File Folders - Letter']['Size'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_manilla_file_folders_letter_size'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_manilla_file_folders_legal_size">
+                            Legal Size
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Manilla File Folders - Legal][Size]',
+                                value: items['Manilla File Folders - Legal']['Size'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_manilla_file_folders_legal_size'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">First Aid: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_absorbent_compress">
+                            Absorbent Compress, 32 sq. in. (1 recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Absorbent Compress, 32 sq. in.][Quantity]',
+                                value: items['First Aid - Absorbent Compress, 32 sq. in.']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_absorbent_compress'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_adhesive_bandages">
+                            Adhesive Bandages, 1 &times; 3 in. (16 recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Adhesive Bandages, 1 x 3 in.][Quantity]',
+                                value: items['First Aid - Adhesive Bandages, 1 x 3 in.']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_adhesive_bandages'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_adhesive_tape">
+                            Adhesive Tape, 3/8 in. &times; 2.5 yd. (1 recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Adhesive Tape, 3/8 in. x 2.5 yd.][Quantity]',
+                                value: items['First Aid - Adhesive Tape, 3/8 in. x 2.5 yd.']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_adhesive_tape'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_atiseptic">
+                            Antiseptic, 0.14 fl. oz. (10 recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Antiseptic, 0.14 fl. oz.][Quantity]',
+                                value: items['First Aid - Antiseptic, 0.14 fl. oz.']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_atiseptic'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_atibiotic_treatment">
+                            Antibiotic Treatment, 0.14 oz. (6 recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Antibiotic Treatment, 0.14 oz.][Quantity]',
+                                value: items['First Aid - Antibiotic Treatment, 0.14 oz.']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_atibiotic_treatment'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_burn_treatment">
+                            Burn Treatment, 1 / 32 oz. (6 recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Burn Treatment, 1 / 32 oz.][Quantity]',
+                                value: items['First Aid - Burn Treatment, 1 / 32 oz.']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_burn_treatment'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_medical_exam_gloves">
+                            Medical Exam Gloves (2 pair recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Medical Exam Gloves][Quantity]',
+                                value: items['First Aid - Medical Exam Gloves']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_medical_exam_gloves'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_sterile_pad">
+                            Sterile pad, 3 &times; 3 in. (4 recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Sterile pad, 3 x 3 in.][Quantity]',
+                                value: items['First Aid - Sterile pad, 3 x 3 in.']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_sterile_pad'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_first_aid_supplies_triangular_bandage">
+                            Triangular Bandage, 40 &times; 40 &times; 56 in. (1 recommended)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[First Aid - Triangular Bandage, 40 x 40 x 56 in.][Quantity]',
+                                value: items['First Aid - Triangular Bandage, 40 x 40 x 56 in.']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_first_aid_supplies_triangular_bandage'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Glue: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_glue_all_purpose">
+                            All-purpose
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Glue - All-purpose][Quantity]',
+                                value: items['Glue - All-purpose']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_glue_all_purpose'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_glue_stick">
+                            Glue Stick
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Glue - Glue Stick][Quantity]',
+                                value: items['Glue - Glue Stick']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_glue_stick'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Rubber Cement:
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_rubber_cement_quart">
+                            Quart
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Rubber Cement - Quart][Quantity]',
+                                value: items['Rubber Cement - Quart']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_rubber_cement_quart'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_rubber_cement_bottle">
+                            Bottle
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Rubber Cement - Bottle][Quantity]',
+                                value: items['Rubber Cement - Bottle']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_rubber_cement_bottle'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Hand Sanitizer:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_hand_sanitizer_big_jug">
+                            Big Jug
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Hand Sanitizer - Big Jug][Quantity]',
+                                value: items['Hand Sanitizer - Big Jug']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_hand_sanitizer_big_jug'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_hand_sanitizer_purell_pump_refill">
+                            Purell Pump Refill
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Hand Sanitizer - Purell Pump Refill][Quantity]',
+                                value: items['Hand Sanitizer - Purell Pump Refill']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_hand_sanitizer_purell_pump_refill'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Hanging File Folders: (Box of 25)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_hanging_file_folders_letter_size">
+                            Letter Size
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Hanging File Folders - Letter][Size]',
+                                value: items['Hanging File Folders - Letter']['Size'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_hanging_file_folders_letter_size'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_hanging_file_folders_legal_size">
+                            Legal Size
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Hanging File Folders - Legal][Size]',
+                                value: items['Hanging File Folders - Legal']['Size'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_hanging_file_folders_legal_size'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Hanging File Folders Frames: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_hanging_file_folders_frames_letter_size">
+                            Letter Size
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Hanging File Folders Frames - Letter][Size]',
+                                value: items['Hanging File Folders Frames - Letter']['Size'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_hanging_file_folders_frames_letter_size'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_hanging_file_folders_frames_legal_size">
+                            Legal Size
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Hanging File Folders Frames - Legal][Size]',
+                                value: items['Hanging File Folders Frames - Legal']['Size'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_hanging_file_folders_frames_legal_size'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Labels: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_labels_1/4_inch_dots">
+                            &frac14;&Prime; Dots
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_labels_1/4_inch_dots_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Labels - 1/4 inch Dots][Color]',
+                                    value: items['Labels - 1/4 inch Dots']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_labels_1/4_inch_dots_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Labels - 1/4 inch Dots][Quantity]',
+                                value: items['Labels - 1/4 inch Dots']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_labels_1/4_inch_dots'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_labels_avery_green_glow">
+                            Avery Green Glow
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_labels_avery_green_glow_size">
+                                Size:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Labels - Avery Green Glow][Size]',
+                                    value: items['Labels - Avery Green Glow']['Size'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_labels_avery_green_glow_size'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Labels - Avery Green Glow][Quantity]',
+                                value: items['Labels - Avery Green Glow']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_labels_avery_green_glow'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_labels_avery_red_glow">
+                            Avery Red Glow
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_labels_avery_red_glow_size">
+                                Size:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Labels - Avery Red Glow][Size]',
+                                    value: items['Labels - Avery Red Glow']['Size'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_labels_avery_red_glow_size'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Labels - Avery Red Glow][Quantity]',
+                                value: items['Labels - Avery Red Glow']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_labels_avery_red_glow'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_labels_file_folder">
+                            File Folder
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_labels_file_folder_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Labels - File Folder][Color]',
+                                    value: items['Labels - File Folder']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_labels_file_folder_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Labels - File Folder][Quantity]',
+                                value: items['Labels - File Folder']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_labels_file_folder'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_labels_laser">
+                            Laser
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_labels_laser_size">
+                                Size:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Labels - Laser][Size]',
+                                    value: items['Labels - Laser']['Size'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_labels_laser_size'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Labels - Laser][Quantity]',
+                                value: items['Labels - Laser']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_labels_laser'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Markers: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_markers_black_chisel_tip_permanent">
+                            Black Chisel Tip, Permanent
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Markers - Black Chisel Tip, Permanent][Quantity]',
+                                value: items['Markers - Black Chisel Tip, Permanent']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_markers_black_chisel_tip_permanent'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Sharpie:
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_markers_sharpie_ultra_fine">
+                            Ultra-fine
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_markers_sharpie_ultra_fine_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Markers - Sharpie Ultra-fine][Color]',
+                                    value: items['Markers - Sharpie Ultra-fine']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_markers_sharpie_ultra_fine_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Markers - Sharpie Ultra-fine][Quantity]',
+                                value: items['Markers - Sharpie Ultra-fine']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_markers_sharpie_ultra_fine'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_markers_sharpie_x_fine">
+                            X-fine
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_markers_sharpie_x_fine_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Markers - Sharpie X-fine][Color]',
+                                    value: items['Markers - Sharpie X-fine']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_markers_sharpie_x_fine_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Markers - Sharpie X-fine][Quantity]',
+                                value: items['Markers - Sharpie X-fine']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_markers_sharpie_x_fine'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_markers_sharpie_fine">
+                            Fine
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_markers_sharpie_fine_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Markers - Sharpie Fine][Color]',
+                                    value: items['Markers - Sharpie Fine']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_markers_sharpie_fine_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Markers - Sharpie Fine][Quantity]',
+                                value: items['Markers - Sharpie Fine']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_markers_sharpie_fine'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_markers_dry_erase">
+                            Dry Erase
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_markers_dry_erase_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Markers - Dry Erase][Color]',
+                                    value: items['Markers - Dry Erase']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_markers_dry_erase_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Markers - Dry Erase][Quantity]',
+                                value: items['Markers - Dry Erase']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_markers_dry_erase'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_markers_highlighter">
+                            Highlighter
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_markers_highlighter_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Markers - Highlighter][Color]',
+                                    value: items['Markers - Highlighter']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_markers_highlighter_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Markers - Highlighter][Quantity]',
+                                value: items['Markers - Highlighter']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_markers_highlighter'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Note Pads, White: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_note_pads_small">
+                            Small, 5 &times; 7
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Note Pads, White - Small, 5x7][Quantity]',
+                                value: items['Note Pads, White - Small, 5x7']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_note_pads_small'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_note_pads_medium">
+                            Medium, 8&frac12; &times; 11
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Note Pads, White - Medium, 8-1/2x11][Quantity]',
+                                value: items['Note Pads, White - Medium, 8-1/2x11']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_note_pads_medium'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_note_pads_large">
+                            Large, 8&frac12; &times; 14
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Note Pads, White - Large, 8-1/2x14][Quantity]',
+                                value: items['Note Pads, White - Large, 8-1/2x14']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_note_pads_large'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Paper: (Case)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_paper_8-1/2x11">
+                            8&frac12; &times; 11
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_paper_8-1/2x11_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Paper - 8-1/2x11][Color]',
+                                    value: items['Paper - 8-1/2x11']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_paper_8-1/2x11_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Paper - 8-1/2x11][Quantity]',
+                                value: items['Paper - 8-1/2x11']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_paper_8-1/2x11'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_paper_8-1/2x14">
+                            8&frac12; &times; 14
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Paper - 8-1/2x14][Quantity]',
+                                value: items['Paper - 8-1/2x14']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_paper_8-1/2x14'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_paper_11x17">
+                            11 &times; 17 (Ream)
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Paper - 11x17][Quantity]',
+                                value: items['Paper - 11x17']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_paper_11x17'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Paper Clips:</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_paper_clips_regular">
+                            Regular
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Paper Clips - Regular][Quantity]',
+                                value: items['Paper Clips - Regular']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_paper_clips_regular'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_paper_clips_jumbo">
+                            Jumbo
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Paper Clips - Jumbo][Quantity]',
+                                value: items['Paper Clips - Jumbo']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_paper_clips_jumbo'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Pencils: (Box)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_pencils_no2">
+                            No. 2
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Pencils - No. 2][Quantity]',
+                                value: items['Pencils - No. 2']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_pencils_no2'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_pencils_mechanical">
+                            Mechanical
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Pencils - Mechanical][Quantity]',
+                                value: items['Pencils - Mechanical']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_pencils_mechanical'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_pencils_golf">
+                            Golf
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Pencils - Golf][Quantity]',
+                                value: items['Pencils - Golf']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_pencils_golf'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">
+                        Pens: (Box of 12)
+                    </th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_pens_fine">
+                            Fine
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_pens_fine_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Pens - Fine][Color]',
+                                    value: items['Pens - Fine']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_pens_fine_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Pens - Fine][Quantity]',
+                                value: items['Pens - Fine']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_pens_fine'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_pens_medium">
+                            Medium
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_pens_medium_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Pens - Medium][Color]',
+                                    value: items['Pens - Medium']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_pens_medium_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Pens - Medium][Quantity]',
+                                value: items['Pens - Medium']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_pens_medium'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_pens_with_chain">
+                            With Chain
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_pens_with_chain_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Pens - With Chain][Color]',
+                                    value: items['Pens - With Chain']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_pens_with_chain_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Pens - With Chain][Quantity]',
+                                value: items['Pens - With Chain']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_pens_with_chain'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_pens_refill_for_chain_style">
+                            Refill for Chain Style
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_pens_refill_for_chain_style_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Pens - Refill for Chain Style][Color]',
+                                    value: items['Pens - Refill for Chain Style']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_pens_refill_for_chain_style_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Pens - Refill for Chain Style][Quantity]',
+                                value: items['Pens - Refill for Chain Style']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_pens_refill_for_chain_style'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_pens_felt_tip">
+                            Felt Tip
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_pens_felt_tip_color">
+                                Color:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Pens - Felt Tip][Color]',
+                                    value: items['Pens - Felt Tip']['Color'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_pens_felt_tip_color'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Pens - Felt Tip][Quantity]',
+                                value: items['Pens - Felt Tip']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_pens_felt_tip'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Post-it Notes: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_postit_notes_1-1/2x2">
+                            1&frac12; &times; 2
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Post-it Notes - 1-1/2x2][Quantity]',
+                                value: items['Post-it Notes - 1-1/2x2']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_postit_notes_1-1/2x2'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_postit_notes_3x3">
+                            3 &times; 3
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Post-it Notes - 3x3][Quantity]',
+                                value: items['Post-it Notes - 3x3']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_postit_notes_3x3'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_postit_notes_3x5">
+                            3 &times; 5
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Post-it Notes - 3x5][Quantity]',
+                                value: items['Post-it Notes - 3x5']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_postit_notes_3x5'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Rubber Bands: (Box)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_rubber_bands_16">
+                            #16
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Rubber Bands - #16][Quantity]',
+                                value: items['Rubber Bands - #16']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_rubber_bands_16'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_rubber_bands_19">
+                            #19
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Rubber Bands - #19][Quantity]',
+                                value: items['Rubber Bands - #19']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_rubber_bands_19'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_rubber_bands_32-33">
+                            #32&ndash;#33
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Rubber Bands - #32-#33][Quantity]',
+                                value: items['Rubber Bands - #32-#33']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_rubber_bands_32-33'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_rubber_bands_64">
+                            #64
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Rubber Bands - #64][Quantity]',
+                                value: items['Rubber Bands - #64']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_rubber_bands_64'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_rubber_bands_117">
+                            #117
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Rubber Bands - #117][Quantity]',
+                                value: items['Rubber Bands - #117']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_rubber_bands_117'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Stamp Pads: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_stamp_pad_black">
+                            Black
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Stamp Pads - Black][Quantity]',
+                                value: items['Stamp Pads - Black']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_stamp_pad_black'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_stamp_pad_red">
+                            Red
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Stamp Pads - Red][Quantity]',
+                                value: items['Stamp Pads - Red']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_stamp_pad_red'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_stamp_pad_green">
+                            Green
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Stamp Pads - Green][Quantity]',
+                                value: items['Stamp Pads - Green']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_stamp_pad_green'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_stamp_pad_blue">
+                            Blue
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Stamp Pads - Blue][Quantity]',
+                                value: items['Stamp Pads - Blue']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_stamp_pad_blue'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Staplers / Staples: (Each / Box)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_stapler">
+                            Stapler
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Staplers / Staples - Stapler][Quantity]',
+                                value: items['Staplers / Staples - Stapler']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_stapler'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_staples_standard">
+                            Standard Staples
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Staplers / Staples - Standard Staples][Quantity]',
+                                value: items['Staplers / Staples - Standard Staples']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_staples_standard'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_staples_electric">
+                            Electric Staples
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Staplers / Staples - Electric Staples][Quantity]',
+                                value: items['Staplers / Staples - Electric Staples']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_staples_electric'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_staple_remover">
+                            Staple Remover
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Staplers / Staples - Staple Remover][Quantity]',
+                                value: items['Staplers / Staples - Staple Remover']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_staple_remover'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Tape: (Roll)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_tape_clear_scotch">
+                            Clear Scotch, &frac34;&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Tape - Clear Scotch, 3/4 inch][Quantity]',
+                                value: items['Tape - Clear Scotch, 3/4 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_tape_clear_scotch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Book:
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_tape_book_1-1/2_inch">
+                            1&frac12;&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Tape - Book 1-1/2 inch][Quantity]',
+                                value: items['Tape - Book 1-1/2 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_tape_book_1-1/2_inch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_tape_book_2_inch">
+                            2&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Tape - Book 2 inch][Quantity]',
+                                value: items['Tape - Book 2 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_tape_book_2_inch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_tape_book_3_inch">
+                            3&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Tape - Book 3 inch][Quantity]',
+                                value: items['Tape - Book 3 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_tape_book_3_inch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_tape_book_4_inch">
+                            4&Prime;
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Tape - Book 4 inch][Quantity]',
+                                value: items['Tape - Book 4 inch']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_tape_book_4_inch'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_tape_box_sealing">
+                            Box Sealing
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Tape - Box Sealing][Quantity]',
+                                value: items['Tape - Box Sealing']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_tape_box_sealing'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_tape_double_sided">
+                            Double Sided
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Tape - Double Sided][Quantity]',
+                                value: items['Tape - Double Sided']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_tape_double_sided'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_tape_dispenser">
+                            Dispenser
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Tape - Dispenser][Quantity]',
+                                value: items['Tape - Dispenser']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_tape_dispenser'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Typewriter Ribbons: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_typewriter_ribbons_ibm_wheelwriter_ribbon">
+                            IBM Wheelwriter Ribbon
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Typewriter Ribbons - IBM Wheelwriter Ribbon][Quantity]',
+                                value: items['Typewriter Ribbons - IBM Wheelwriter Ribbon']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_typewriter_ribbons_ibm_wheelwriter_ribbon'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_typewriter_ribbons_ibm_wheelwriter_correction">
+                            IBM Wheelwriter Correction
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Typewriter Ribbons - IBM Wheelwriter Correction][Quantity]',
+                                value: items['Typewriter Ribbons - IBM Wheelwriter Correction']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_typewriter_ribbons_ibm_wheelwriter_correction'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <th colspan="2">Miscellaneous: (Each)</th>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_clipboard">
+                            Clipboard
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Clipboard][Quantity]',
+                                value: items['Miscellaneous - Clipboard']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_clipboard'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_compressed_air">
+                            Compressed Air
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Compressed Air][Quantity]',
+                                value: items['Miscellaneous - Compressed Air']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_compressed_air'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_correction_tape">
+                            Correction Tape
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Correction Tape][Quantity]',
+                                value: items['Miscellaneous - Correction Tape']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_correction_tape'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_liquid_paper">
+                            Liquid Paper
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Liquid Paper][Quantity]',
+                                value: items['Miscellaneous - Liquid Paper']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_liquid_paper'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_lysol_wipes">
+                            Lysol Wipes
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Lysol Wipes][Quantity]',
+                                value: items['Miscellaneous - Lysol Wipes']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_lysol_wipes'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        Name Tag
+                    </td>
+                <tr>
+                    <td class="indent">
+                        <label for="items_miscellaneous_name_tag_clear_plastic_pin">
+                            Clear Plastic Pin
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Name Tag, Clear Plastic Pin][Quantity]',
+                                value: items['Miscellaneous - Name Tag, Clear Plastic Pin']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_name_tag_clear_plastic_pin'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_miscellaneous_name_tag_self_adhesive">
+                            Self-adhesive
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Name Tag, Self-adhesive][Quantity]',
+                                value: items['Miscellaneous - Name Tag, Self-adhesive']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_name_tag_self_adhesive'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td class="indent">
+                        <label for="items_miscellaneous_name_tag_staff">
+                            Staff
+                        </label>
+                        <div class="pull-right">
+                            <label for="items_miscellaneous_name_tag_staff_name">
+                                Name as you would like it to appear on tag:
+                            </label>
+                            {{
+                                helper.input({
+                                    type: 'text',
+                                    name: 'items[Miscellaneous - Name Tag, Staff][Name]',
+                                    value: items['Miscellaneous - Name Tag, Staff']['Name'],
+                                    attribs: {
+                                        class: 'form-control',
+                                        id: 'items_miscellaneous_name_tag_staff_name'
+                                    }
+                                })
+                                |raw
+                            }}
+                        </div>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Name Tag, Staff][Quantity]',
+                                value: items['Miscellaneous - Name Tag, Staff']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_name_tag_staff'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_ruler">
+                            Ruler
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Ruler][Quantity]',
+                                value: items['Miscellaneous - Ruler']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_ruler'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_scissors">
+                            Scissors
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Scissors][Quantity]',
+                                value: items['Miscellaneous - Scissors']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_scissors'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_thermal_receipt_paper">
+                            Thermal Receipt Paper
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Thermal Receipt Paper][Quantity]',
+                                value: items['Miscellaneous - Thermal Receipt Paper']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_thermal_receipt_paper'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="items_miscellaneous_tissue_box">
+                            Tissue Box
+                        </label>
+                    </td>
+                    <td>
+                        {{
+                            helper.input({
+                                type: 'text',
+                                name: 'items[Miscellaneous - Tissue Box][Quantity]',
+                                value: items['Miscellaneous - Tissue Box']['Quantity'],
+                                attribs: {
+                                    class: 'form-control',
+                                    id: 'items_miscellaneous_tissue_box'
+                                }
+                            })
+                            |raw
+                        }}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <fieldset class="form">
+            <legend>Other Supplies</legend>
+            <div class="form-group">
+                <label for="items_other_supplies">
+                    Please use the space below to detail any additional items needed. Include essential information such as vendor name, description, quantity, color, size, etc. If necessary, forward the information on a separate sheet of paper to the Budget Office.
+                </label>
+                {{
+                    helper.input({
+                        type: 'textarea',
+                        name: 'items[Other Supplies]',
+                        value: items['Other Supplies'],
+                        attribs: {
+                            class: 'form-control',
+                            id: 'items_other_supplies'
+                        }
+                    })
+                    |raw
+                }}
+            </div>
+        </fieldset>
+        {{
+            helper.input({
+                type: 'submit',
+                name: false,
+                value: 'Email Your Request',
+                attribs: {class: 'btn btn-primary'}
+            })
+            |raw
+        }}
+        {{ csrf_hidden|raw }}
+    </form>
+{% endblock %}
+
+{% block styles %}
+{{ parent() }}
+    <style>
+        label { font-weight: normal; }
+        .help-block { margin: 7px 0 0 0; }
+        .table-bordered, .table-bordered th, .table-bordered td { border: 1px solid #bbb !important; }
+        .table-bordered thead th { background: #ff9; text-align: center; }
+        .table-bordered tbody th { background: #fc6; }
+        .table-bordered tbody td { background: #ffc; }
+        .table-bordered tbody td[colspan] { background: #ffff9e; }
+        .table-bordered tbody td.indent { padding-left: 3em; }
+        .table-bordered label { margin: 6px 0; }
+    </style>
+{% endblock %}
+
+{% block scripts %}
+{{ parent() }}
+    <script src="/assets/js/jquery.floatThead.js"></script>
+    <script>
+    $('.table-bordered').floatThead({
+        getSizingRow: function($table) {
+            return $table.find('tbody tr:visible:nth-child(2)>*');
+        }
+    });
+    </script>
+{% endblock %}

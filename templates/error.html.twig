@@ -1,0 +1,7 @@
+{% set title = title|default('Unexpected Error') %}
+{% extends [settings.template.page, 'page.html.twig'] %}
+
+{% block content %}
+{{ parent() }}
+{{ message|default('<p>Your request could not be completed.</p>')|raw }}
+{% endblock %}

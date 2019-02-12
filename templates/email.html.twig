@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+    <body>
+        <h1 style="margin:0 0 10px 0">Supply Request</h1>
+        <table border="0" cellspacing="0" cellpadding="0" style="margin:0 0 10px 0">
+            <tr>
+                <th style="padding:0 1em 0 0;text-align:left">Date</th>
+                <td colspan="2">
+                    {{ 'now'|date('m/d/Y') }}
+                </td>
+            </tr>
+            {% if department %}
+            <tr>
+                <th style="padding:0 1em 0 0;text-align:left">Dept.</th>
+                <td colspan="2">
+                    {{ department }}
+                </td>
+            </tr>
+            {% endif %}
+            {% if name %}
+            <tr>
+                <th style="padding:0 1em 0 0;text-align:left">Name</th>
+                <td colspan="2">
+                    {{ name }}
+                </td>
+            </tr>
+            {% endif %}
+            {% if email %}
+            <tr>
+                <th style="padding:0 1em 0 0;text-align:left">Email</th>
+                <td colspan="2">
+                    {{ email }}
+                </td>
+            </tr>
+            {% endif %}
+            {% if phone %}
+            <tr>
+                <th style="padding:0 1em 0 0;text-align:left">Phone</th>
+                <td colspan="2">
+                    {{ phone }}
+                </td>
+            </tr>
+            {% endif %}
+        </table>
+        <table border="0" cellspacing="0" cellpadding="0" style="margin:0 0 10px 0">
+            <thead>
+                <tr>
+                    <th colspan="2" style="text-align:left">
+                        Item
+                    </th>
+                    <th style="text-align:left">
+                        Quantity
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for key, value in items %}
+                <tr>
+                    {% if key != 'Other Supplies' %}
+                        <td style="padding:0 1em 0 0;white-space:nowrap">
+                            {{ key|split(' - ')[0] }}
+                        </td>
+                        <td style="padding:0 1em 0 0;white-space:nowrap">
+                            {{
+                                key
+                                    |split(' - ')[1]
+                                    |replace({'1/4': '&frac14;', '1/3': '&frac13;', '1/2': '&frac12;'})
+                                    |replace({'-&frac': '&frac', ' inch': '&Prime;'})
+                                    |raw
+                            }}
+                        </td>
+                        <td>
+                            {{ value['Quantity'] }}
+                        </td>
+                        <td width="99%">
+                            {{ value['Color'] }}
+                            {{ value['Name'] }}
+                            {{ value['Size'] }}
+                        </td>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% if items['Other Supplies'] %}
+        <p><strong>Other Supplies</strong><br>{{ items['Other Supplies'] }}</p>
+        {% endif %}
+    </body>
+</html>
